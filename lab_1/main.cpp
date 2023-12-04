@@ -68,7 +68,7 @@ struct pencil : public Base{           // класс объекта "Каран�
     {
         cout << Name << ": Плотность " << Plotnost << "   Цвет ";
         switch (COLOUR) {
-            case 0: cout << "черный"; break;
+            case 0: cout << "черный"; break;//
             case 1: cout << "белый"; break;
             case 2: cout << "красный"; break;
             case 3: cout << "оранжевый"; break;
