@@ -63,12 +63,12 @@ struct pencil : public Base{           // класс объекта "Каран�
     
     pencil(string& Name_, int Plotnost_, colour COLOUR_, double& PRICE_, string& PHONE_)
     : Plotnost(Plotnost_), COLOUR(COLOUR_), Base(Name_, PRICE_, PHONE_) {}
-    
+    //delete
     void print() // функция вывода объекта на экран
     {
         cout << Name << ": Плотность " << Plotnost << "   Цвет ";
         switch (COLOUR) {
-            case 0: cout << "черный"; break;//
+            case 0: cout << "черный"; break;
             case 1: cout << "белый"; break;
             case 2: cout << "красный"; break;
             case 3: cout << "оранжевый"; break;
