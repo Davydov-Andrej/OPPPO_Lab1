@@ -1,0 +1,79 @@
+#include <list>
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+/*
+struct Base {
+    string name;
+
+    Base(const string& name_) : name(name_) {}
+};
+
+int main() {
+    list<Base> values;
+
+    values.push_back(Base("petya"));
+    values.push_back(Base("gosha"));
+    values.push_back(Base("misha"));
+
+    for (auto value : values) {
+        cout << value.name << endl;
+    }
+}*/
+
+struct Base {
+    string name;
+
+    Base(const string& name_) : name(name_) {}
+
+    virtual void print() = 0;
+};
+
+struct Sea : public Base {
+    int depth;
+    double salt;
+
+    Sea(const string& name_, int depth_, int salt_) 
+    : Base(name_), depth(depth_), salt(salt_) {}
+
+    void print() {
+        cout << "sea " << name << " " << depth << " - " << salt << endl;
+    }
+};
+
+struct Mountain : public Base {
+    double height;
+
+    Mountain(const string& name_, double height_) 
+    : Base(name_), height(height_) {}
+
+    void print() {
+        cout << "MOUNTEIN " << name << " " << height << endl;
+    }
+};
+
+
+int main() {
+    list<Base*> values;
+
+    values.push_back(new Sea("laptevih", 123, 23));
+    values.push_back(new Mountain("everest", 12000));
+    values.push_back(new Sea("chernoe", 23, 3));
+
+    values.remove_if(
+            [](Base* value) {
+                Sea* sea = dynamic_cast<Sea*>(value);
+
+                if (sea == nullptr) {
+                    return false;
+                }
+
+                return sea->salt > 1;
+            });
+
+    for (auto* value : values) {
+        value->print();
+    }
+}

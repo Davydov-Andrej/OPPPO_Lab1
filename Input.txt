@@ -1,0 +1,8 @@
+ADD pencil 15 red 10.2 +78005553535
+ADD pen gel 3.6 20.5 +78001234567
+ADD pencil 5 green 15.0 +78007006050
+ADD pen ballpoint 5.1 25.1 +78007654321
+ADD paper 10 15 21 2.4 +78007654321
+Print
+REM pen
+Print
